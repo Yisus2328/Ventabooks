@@ -40,6 +40,7 @@ Criticas.append("10 de 10")
 Criticas.append("Que bendicion")
 
 
+
 def validarcod(cod):
     for i in range(10):
         if libros[i,0]==cod:
@@ -110,20 +111,38 @@ def opciones(opcion):
             for i in range(10):
                 if libros[i,0]==c:
                     printvv(f"""
+                            
                     Codigo: {libros[i,0]}
                     Titulo del libro: {libros[i,1]}
                     --------------------------------------
-                    Critcas del libro
+                             Critcas del libro
                     ---------------------------------------
-                    1){Criticas[random.randint(0,8)]}
-                    2){Criticas[random.randint(0,8)]}
-                    3){Criticas[random.randint(0,8)]}
-                    4){Criticas[random.randint(0,8)]}
+                    1) {Criticas[random.randint(0,8)]}
+                    2) {Criticas[random.randint(0,8)]}
+                    3) {Criticas[random.randint(0,8)]}
+                    4) {Criticas[random.randint(0,8)]}
                     """)
                     return True
             printr("Libro no encontrado")
         elif cert==2:
             printvv("Certificado de detalle de ventas")
+            c=int(input("Ingrese el codigo del libro :"))
+            limpiarpantalla()
+            for i in range(10):
+                total=random.randint(0,100)
+                if libros[i,0]==c:
+                    printvv(f"""
+                            
+                    Codigo: {libros[i,0]}
+                    Titulo del libro: {libros[i,1]}
+                    ------------------------------
+                         DETALLE DE VENTAS
+                    ------------------------------
+                    Total vendido: {total}
+                    Total recaudado: {total*libros[i,3]}
+                    """)
+                    return True
+            printr("Libro no encontrado")
         else:
             printr("Certificado no valido")
     else:
