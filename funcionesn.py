@@ -50,10 +50,28 @@ def titulo():
 def opciones(opcion):
 
     if opcion==1:
-        printv("GUARDAR LIBRO")    
+        printv("GUARDAR LIBRO")
+        if None in libros():
+            c=int(input("Ingrese el codigo del libro :"))
+            if validarcod(c)<0:
+                tit=input("Ingrese el nombre del autor :").capitalize()
+            else:
+                printr("El codigo esta repetido")
+        else:
+            printr("No hay espacio disponible")    
     elif opcion==2:
         printv("BUSCAR LIBRO")
     elif opcion==3:
         printv("IMPRIMIR DOCUMENTOS")
+        print("1) Criticas ")
+        print("2) Detalles ")
+        cert = int(input("Seleccione :"))
+
+        if cert==1:
+            printv("Certificado de criticas ")
+        elif cert==2:
+            printv("Certificado de detalle de ventas")
+        else:
+            printr("Certificado no valido")
     else:
         printr("OPCION INVALIDA")
